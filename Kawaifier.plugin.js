@@ -1,8 +1,8 @@
 /**
  * @name Kawaifier
- * @version 1.0.0
+ * @version 1.0.1
  * @author Ykela
- * @description Makes your messages super kawai cute type shit
+ * @description Makes your messages super kawai and cute.
  */
 
 let messageCounter = 0;
@@ -16,6 +16,21 @@ const swearWordsList = [
     "omg", "penis", "piss", "poop", "prick", "pube", "pussy", "queer", "scrotum", "sex", "shit", "s hit",
     "sh1t", "slut", "smegma", "spunk", "tit", "tosser", "turd", "twat", "vagina", "wank", "whore", "wtf"
 ];
+
+// Special word transformations
+const cuteReplacements = {
+    "hi": "hai",
+    "hello": "hewwo",
+    "hey": "haii",
+    "sorry": "sowwy",
+    "bye": "bai",
+    "goodbye": "bai bai",
+    "what": "wat",
+    "why": "wy",
+    "no": "nu",
+    "yes": "yis",
+    "ok": "oki"
+};
 
 module.exports = class MegaShy {
     start() {
@@ -65,6 +80,12 @@ module.exports = class MegaShy {
         for (let i = 0; i < words.length; i++) {
             let originalWord = words[i];
             let cleanWord = originalWord.replace(/[^a-zA-Z]/g, '').toLowerCase();
+
+            // Check for special cute replacements first
+            if (cuteReplacements[cleanWord]) {
+                shyWords.push(cuteReplacements[cleanWord]);
+                continue;
+            }
 
             if (swearWordsList.includes(cleanWord)) {
                 shyWords.push(`***${originalWord}***`);
