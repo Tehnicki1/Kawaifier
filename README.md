@@ -5,7 +5,8 @@ Kawaifier is a plugin for betterdiscord that gives your messages a kawai twist :
 Stuttering ✅ <br />
 Random Phrases ✅ <br />
 Random Emoticons ✅ <br />
-Highlighting bad words ✅
+Highlighting bad words ✅ <br />
+Common word replacement ✅
 
 # How to use ❓
 1. Download better discord
